@@ -10,7 +10,14 @@ app.get('/posts', (req, res) => {
 });
 
 app.post('/posts', (req, res) => {
-    const id = randomBytes(4).toString('hex');
+    const id = randomBytes(4).toString('hex'); //Import RandomBytes um die Eindeutige Id zu erstellen
+    const {title} = req.body;
+
+    posts[id] = { //Erstelle ein Post und retuniere den Post mit dem Status 201
+        id, title
+    };
+
+    res.status(201).send(posts[id]);
 });
 
 app.listen(4000, () => {

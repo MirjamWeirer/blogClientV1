@@ -1,7 +1,10 @@
 const express = require('express');
-const {randomBytes} = require('crypto')
+const bodyParser = require('body-parser');
+const {randomBytes} = require('crypto');
 
 const app = express();
+app.use(bodyParser.json()); //Um mit JSON Format arbeiten zu können müssen wir body-parser importieren (im Request Body)
+
 
 const posts = {};
 
